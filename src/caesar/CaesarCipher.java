@@ -38,6 +38,10 @@ public class CaesarCipher {
 			
 			keyAdded = index + key;
 			
+			if (keyAdded >= alpha.length()) {
+				keyAdded -= alpha.length();
+			}
+			
 			System.out.println("Encoded is: " + alpha.charAt(keyAdded));
 		}
 		
