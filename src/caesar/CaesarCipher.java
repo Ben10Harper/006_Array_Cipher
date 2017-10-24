@@ -8,19 +8,19 @@ public class CaesarCipher {
 		String secretText = "";
 		int index, keyAdded;
 		
-		System.out.println("test: alpha length = " + alpha.length());
-		System.out.println("test: first char is: " + alpha.charAt(0));
-		System.out.println("test: first char is: " + alpha.charAt(alpha.length()-1));
+		//System.out.println("test: alpha length = " + alpha.length());
+		//System.out.println("test: first char is: " + alpha.charAt(0));
+		//System.out.println("test: first char is: " + alpha.charAt(alpha.length()-1));
 		
-		for (int i = 0; i < alpha.length(); i++) {
-			System.out.println(alpha.charAt(i));
-		}
+		//for (int i = 0; i < alpha.length(); i++) {
+		//	System.out.println(alpha.charAt(i));
+		//}
 		
-		System.out.println("\n\n");
+		//System.out.println("\n\n");
 		
-		for (int i = 0; i < plainText.length(); i++) {
-			System.out.println(plainText.charAt(i));
-		}
+		//for (int i = 0; i < plainText.length(); i++) {
+		//	System.out.println(plainText.charAt(i));
+		//}
 		
 		/*
 		 * each char that I read from plainText I find the index in alpha
@@ -38,7 +38,8 @@ public class CaesarCipher {
 
 			keyAdded = (index + key) % alpha.length();
 			
-			System.out.println("Encoded is: " + alpha.charAt(keyAdded));
+			//System.out.println("Encoded is: " + alpha.charAt(keyAdded));
+			secretText += alpha.charAt(keyAdded);
 		}
 		
 		return secretText;
