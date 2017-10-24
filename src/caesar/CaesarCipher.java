@@ -38,9 +38,14 @@ public class CaesarCipher {
 			
 			keyAdded = index + key;
 			
-			if (keyAdded >= alpha.length()) {
-				keyAdded -= alpha.length();
-			}
+			/* Doug's Method */
+			   keyAdded = (index + key) % alpha.length();
+			
+			/* Will's Method
+			 * if (keyAdded >= alpha.length()) {
+			 *	 keyAdded -= alpha.length();
+			 * }
+			 */
 			
 			System.out.println("Encoded is: " + alpha.charAt(keyAdded));
 		}
