@@ -35,17 +35,8 @@ public class CaesarCipher {
 		for (int i = 0; i < plainText.length(); i++) {
 			index = alpha.indexOf(plainText.charAt(i));
 			//System.out.println("index = " + index);
-			
-			keyAdded = index + key;
-			
-			/* Doug's Method */
-			   keyAdded = (index + key) % alpha.length();
-			
-			/* Will's Method
-			 * if (keyAdded >= alpha.length()) {
-			 *	 keyAdded -= alpha.length();
-			 * }
-			 */
+
+			keyAdded = (index + key) % alpha.length();
 			
 			System.out.println("Encoded is: " + alpha.charAt(keyAdded));
 		}
