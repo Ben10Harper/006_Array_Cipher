@@ -5,6 +5,7 @@ public class CaesarCipher {
 	private String alpha = "abcdefghijklmnopqrstuvwxyz 0123456789.:'";
 
 	public String encode(String plainText, int key) {
+		String checkSpace;
 		String secretText = "";
 		int index, keyAdded;
 		
@@ -33,6 +34,10 @@ public class CaesarCipher {
 		 */
 		
 		for (int i = 0; i < plainText.length(); i++) {
+			checkSpace = "" + plainText.charAt(i);
+			if(checkSpace.equals(" ")) {
+				secretText += checkSpace;
+			}
 			index = alpha.indexOf(plainText.charAt(i));
 			//System.out.println("index = " + index);
 
