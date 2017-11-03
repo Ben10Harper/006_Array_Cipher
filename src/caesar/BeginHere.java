@@ -26,10 +26,8 @@ public class BeginHere {
 		
 		switch (selection) {
 		case "Encoder":
-			JOptionPane.showMessageDialog(null,
-					"We are now in the Encoder switch block - add some code!");
 				msg = "Please enter the plain text to encode.";
-				String plainText = JOptionPane.showInputDialog(msg);
+				String plainText = JOptionPane.showInputDialog(msg).toLowerCase();
 		
 				msg="Please enter the key.";
 				int key = Integer.parseInt(JOptionPane.showInputDialog(msg));
@@ -42,6 +40,16 @@ public class BeginHere {
 		case "Decoder":
 			JOptionPane.showMessageDialog(null,
 					"We are now in the Decoder switch block - add some code!");
+				msg = "Please enter the coded text to decode.";
+				codedText = JOptionPane.showInputDialog(msg).toLowerCase();
+	
+				msg="Please enter the key.";
+				key = Integer.parseInt(JOptionPane.showInputDialog(msg));
+				//System.out.println("Your key is: " + key);
+	
+				plainText = myCipher.encode(codedText, key);
+				msg="Your secret message is: " + codedText;
+				JOptionPane.showMessageDialog(null, msg);
 			break;
 		case "Cracker":
 			JOptionPane.showMessageDialog(null,

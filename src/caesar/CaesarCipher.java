@@ -23,5 +23,24 @@ public class CaesarCipher {
 		return secretText;
 
 	}
+	public String decode(String codedText, int key) {
+		
+		String secretText = "";
+		int index, keyAdded;
+
+		for (int i = 0; i < codedText.length(); i++) {
+			if (codedText.charAt(i) != ' ') {
+				index = alpha.indexOf(codedText.charAt(i));
+				keyAdded = (index + key) % alpha.length();
+				secretText = secretText + alpha.charAt(keyAdded);
+			} else {
+				secretText = secretText + " ";
+			}
+
+		}
+
+		return secretText;
+
+	}
 
 }
