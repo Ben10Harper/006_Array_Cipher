@@ -48,7 +48,7 @@ public class BeginHere {
 				//System.out.println("Your key is: " + key);
 	
 				plainText = myCipher.encode(codedText, key);
-				msg="Your secret message is: " + codedText;
+				msg="Your secret message is: " + plainText;
 				JOptionPane.showMessageDialog(null, msg);
 			break;
 		case "Cracker":
