@@ -9,7 +9,7 @@ public class BeginHere {
 		String msg = "";
 		
 	while (playing == true) {
-		Object[] selectionsArray = {"Encoder", "Decoder", "Cracker", "Exit", "late addition"};
+		Object[] selectionsArray = {"Encoder", "Decoder", "Cracker", "Exit"};
 		String showFirst = "encode";
 		String selection = (String) JOptionPane.showInputDialog(
 							null,
@@ -38,8 +38,6 @@ public class BeginHere {
 				JOptionPane.showMessageDialog(null, msg);
 			break;
 		case "Decoder":
-			JOptionPane.showMessageDialog(null,
-					"We are now in the Decoder switch block - add some code!");
 				msg = "Please enter the coded text to decode.";
 				codedText = JOptionPane.showInputDialog(msg).toLowerCase();
 	
@@ -47,13 +45,13 @@ public class BeginHere {
 				key = Integer.parseInt(JOptionPane.showInputDialog(msg));
 				//System.out.println("Your key is: " + key);
 	
-				plainText = myCipher.encode(codedText, key);
+				plainText = myCipher.decode(codedText, key);
 				msg="Your secret message is: " + plainText;
 				JOptionPane.showMessageDialog(null, msg);
 			break;
 		case "Cracker":
-			JOptionPane.showMessageDialog(null,
-					"We are now in the Cracker switch block - add some code!");
+			msg = "Please enter the text to crack.";
+			codedText = JOptionPane.showInputDialog(msg).toLowerCase();
 			break;
 		case "Exit":
 			JOptionPane.showMessageDialog(null,

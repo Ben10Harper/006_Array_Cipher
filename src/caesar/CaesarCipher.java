@@ -31,7 +31,7 @@ public class CaesarCipher {
 		for (int i = 0; i < codedText.length(); i++) {
 			if (codedText.charAt(i) != ' ') {
 				index = alpha.indexOf(codedText.charAt(i));
-				keyAdded = (index - key) % alpha.length();
+				keyAdded = ((index - key)+alpha.length()) % alpha.length();
 				secretText = secretText + alpha.charAt(keyAdded);
 			} else {
 				secretText = secretText + " ";
@@ -40,6 +40,11 @@ public class CaesarCipher {
 		}
 
 		return secretText;
+
+	}
+public String crack(String codedText) {
+		
+		return null;
 
 	}
 
