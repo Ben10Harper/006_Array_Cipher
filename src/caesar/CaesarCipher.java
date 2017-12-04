@@ -44,6 +44,18 @@ public class CaesarCipher {
 	}
 public String crack(String codedText) {
 		
+		String secretText = "";
+		int index, keyAdded;
+		for (int i=0; i < alpha.length(); i++) {
+			if (codedText.charAt(i) != ' ') {
+				index = alpha.indexOf(codedText.charAt(i));
+				keyAdded = (index + i) % alpha.length();
+				secretText = secretText + alpha.charAt(keyAdded);
+			} else {
+				secretText = secretText + " ";
+			}
+		System.out.println("Key: "+i+" "+secretText);
+		}
 		return null;
 
 	}

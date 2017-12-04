@@ -50,8 +50,9 @@ public class BeginHere {
 				JOptionPane.showMessageDialog(null, msg);
 			break;
 		case "Cracker":
-			msg = "Please enter the text to crack.";
-			codedText = JOptionPane.showInputDialog(msg).toLowerCase();
+				msg = "Please enter the text to crack.";
+				codedText = JOptionPane.showInputDialog(msg).toLowerCase();
+				myCipher.crack(codedText);
 			break;
 		case "Exit":
 			JOptionPane.showMessageDialog(null,
