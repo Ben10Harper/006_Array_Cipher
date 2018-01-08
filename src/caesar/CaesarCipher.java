@@ -1,65 +1,59 @@
 package caesar;
 
 public class CaesarCipher {
-
-	private String alpha = "abcdefghijklmnopqrstuvwxyz0123456789.:'";
-
-	public String encode(String plainText, int key) {
+	
+	private String alpha = "abcdefghijklmnopqrstuvwxyz";
+	
+	int index, keyAdded;
+	
+	public void encode (String plainText, int key) {
 		
-		String secretText = "";
-		int index, keyAdded;
-
+		String encodedWord = "";
+		
 		for (int i = 0; i < plainText.length(); i++) {
-			if (plainText.charAt(i) != ' ') {
+			index = alpha.indexOf(plainText.charAt(i));
+			keyAdded = (index + key) % alpha.length();
+			encodedWord+=alpha.charAt(keyAdded);
+		}
+		Stitch.text("The secret message is: " + encodedWord);
+	}
+	public void decode (String plainText, int key) {
+		
+		String decodedWord = "";
+		
+		key = key % alpha.length();
+		
+		for (int i = 0; i < plainText.length(); i++) {
+			index = alpha.indexOf(plainText.charAt(i));
+			
+			keyAdded = index - (key % alpha.length());
+			if (keyAdded < 0) {
+				keyAdded = alpha.length() + keyAdded;
+			}
+			decodedWord+=alpha.charAt(keyAdded);
+		}
+		Stitch.text("The secret message is: " + decodedWord);
+	}
+	public void crack (String plainText) {
+		String keyWord = "";
+		String temp = "Possible decoding keys:\n";
+		
+		for (int key = alpha.length() - 1; key >= 0; key--) {
+			key = key % alpha.length();
+			
+			for (int i = 0; i < plainText.length(); i++) {
 				index = alpha.indexOf(plainText.charAt(i));
-				keyAdded = (index + key) % alpha.length();
-				secretText = secretText + alpha.charAt(keyAdded);
-			} else {
-				secretText = secretText + " ";
+				
+				keyAdded = index - (key % alpha.length());
+				if (keyAdded < 0) {
+					keyAdded = alpha.length() + keyAdded;
+				}
+				keyWord+=alpha.charAt(keyAdded);
 			}
-
+			temp += key + ": " + keyWord + "\n";
+			keyWord = "";
 		}
-
-		return secretText;
-
-	}
-	public String decode(String codedText, int key) {
 		
-		String secretText = "";
-		int index, keyAdded;
-
-		for (int i = 0; i < codedText.length(); i++) {
-			if (codedText.charAt(i) != ' ') {
-				index = alpha.indexOf(codedText.charAt(i));
-				keyAdded = ((index - key)+alpha.length()) % alpha.length();
-				secretText = secretText + alpha.charAt(keyAdded);
-			} else {
-				secretText = secretText + " ";
-			}
-
-		}
-
-		return secretText;
-
+		Stitch.text(temp);
 	}
-public String crack(String codedText) {
-		
-		String secretText = "";
-		int index, keyAdded;
-		for (int i=0; i < alpha.length(); i++) {
-			for (int j=0; i<codedText.length(); i++) {
-			if (codedText.charAt(j) != ' ') {
-				index = alpha.indexOf(codedText.charAt(j));
-				keyAdded = ((index - i) % alpha.length())%alpha.length();
-				secretText = secretText + alpha.charAt(keyAdded);
-			} else {
-				secretText = secretText + " ";
-			}
-		}
-		System.out.println("Key: "+i+" "+secretText);
-		}
-		return null;
-
-	}
-
 }
