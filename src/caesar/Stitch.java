@@ -1,7 +1,5 @@
 package caesar;
 
-import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 
 public class Stitch {
@@ -24,3 +22,5 @@ public class Stitch {
 		JOptionPane.INFORMATION_MESSAGE, null, options, options[startIndex]);
 	}
 }
+
+
